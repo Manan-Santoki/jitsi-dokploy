@@ -1,5 +1,3 @@
-version: '3.8'
-
 # Jitsi Meet for Dokploy + Cloudflare Tunnel setup
 # Web traffic goes through CF Tunnel → Traefik → jitsi-web
 # Media (UDP 10000) goes directly to JVB on host network
@@ -7,7 +5,12 @@ version: '3.8'
 services:
   # Web UI - exposed via Traefik labels (CF Tunnel handles external HTTPS)
   web:
-    image: jitsi/web:${JITSI_IMAGE_VERSION:-stable}
+    build:
+      context: .
+      dockerfile: Dockerfile.web
+      args:
+        JITSI_IMAGE_VERSION: ${JITSI_IMAGE_VERSION:-stable}
+    image: jitsi-web-custom:${JITSI_IMAGE_VERSION:-stable}
     restart: unless-stopped
     volumes:
       - ${CONFIG}/web:/config:Z

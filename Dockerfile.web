@@ -1,0 +1,19 @@
+ARG JITSI_IMAGE_VERSION=stable
+FROM jitsi/web:${JITSI_IMAGE_VERSION}
+
+# ─── Custom branding ───
+# Watermark / logo (replace with your own logo)
+COPY custom-web/branding/watermark.svg /usr/share/jitsi-meet/images/watermark.svg
+COPY custom-web/branding/favicon.ico /usr/share/jitsi-meet/favicon.ico
+
+# Custom CSS overrides
+COPY custom-web/branding/custom.css /usr/share/jitsi-meet/css/custom.css
+
+# Inject custom CSS link into the index.html
+RUN sed -i 's|</head>|<link rel="stylesheet" href="css/custom.css"></head>|' \
+    /usr/share/jitsi-meet/index.html
+
+# ─── Custom config overrides ───
+# These get appended to the default configs by Jitsi's entrypoint scripts
+COPY custom-web/config/custom-config.js /defaults/custom-config.js
+COPY custom-web/config/custom-interface_config.js /defaults/custom-interface_config.js

@@ -1,0 +1,111 @@
+/* ═══════════════════════════════════════════════
+   Manan Meet - Custom Branding CSS
+   ═══════════════════════════════════════════════
+   Override Jitsi's default styles here.
+   This is loaded AFTER Jitsi's CSS, so specificity wins.
+*/
+
+/* ─── Color scheme ─── */
+:root {
+    /* Primary accent - change these to your brand colors */
+    --oq-primary: #6366f1;          /* indigo-500 */
+    --oq-primary-hover: #4f46e5;    /* indigo-600 */
+    --oq-primary-light: #818cf8;    /* indigo-400 */
+    --oq-bg-dark: #0f0f0f;
+    --oq-bg-surface: #1a1a2e;
+    --oq-text: #e2e8f0;
+}
+
+/* ─── Welcome page ─── */
+.welcome {
+    background: var(--oq-bg-dark) !important;
+}
+
+.welcome .header {
+    background: linear-gradient(135deg, var(--oq-bg-surface) 0%, var(--oq-bg-dark) 100%) !important;
+}
+
+/* Welcome page title */
+.welcome .header .title {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+/* "Go" / "Start meeting" button */
+.welcome .welcome-page-button,
+.welcome .action-btn {
+    background-color: var(--oq-primary) !important;
+    border-radius: 12px !important;
+    transition: all 0.2s ease !important;
+}
+.welcome .welcome-page-button:hover,
+.welcome .action-btn:hover {
+    background-color: var(--oq-primary-hover) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3) !important;
+}
+
+/* ─── Prejoin page ─── */
+.oq-prejoin .oq-action-btn,
+.prejoin-preview .action-btn {
+    background-color: var(--oq-primary) !important;
+    border-radius: 10px !important;
+}
+
+/* ─── Toolbar ─── */
+.new-toolbox .toolbox-content-items .toolbox-button:hover {
+    background-color: rgba(99, 102, 241, 0.2) !important;
+}
+
+/* Hangup button */
+.new-toolbox .hangup-button {
+    background-color: #ef4444 !important;
+    border-radius: 16px !important;
+}
+.new-toolbox .hangup-button:hover {
+    background-color: #dc2626 !important;
+}
+
+/* ─── Watermark / logo ─── */
+.oq-watermark,
+.leftwatermark {
+    /* Adjust size of your logo in the top-left corner */
+    width: 140px !important;
+    height: auto !important;
+}
+
+/* ─── Chat panel ─── */
+.oq-chat .oq-chatmessage-localuser .oq-chatmessage-bubble,
+.chat-dialog .my-message .chatmessage {
+    background-color: var(--oq-primary) !important;
+    border-radius: 12px 12px 4px 12px !important;
+}
+
+/* ─── Participant name labels ─── */
+.oq-displayname,
+.displayname {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+    font-weight: 500 !important;
+}
+
+/* ─── Modal / dialog styling ─── */
+.oq-dialog .oq-oq-button-primary,
+.oq-oq-oq .oq-dialog-oq {
+    background-color: var(--oq-primary) !important;
+}
+
+/* ─── Subtle polish ─── */
+/* Rounded video tiles */
+.oq-videocontainer,
+.oq-video-layout .oq-filmstrip__video {
+    border-radius: 12px !important;
+    overflow: hidden !important;
+}
+
+/* ─── Hide Jitsi branding you don't want ─── */
+/* Uncomment any of these to hide specific elements */
+
+/* Hide "oq is oq oq" oq on welcome page */
+/* .welcome .oq-oq { display: none !important; } */
+
+/* Hide oq oq oq the oq logo in header */
+/* .oq-oq .oq { display: none !important; } */
